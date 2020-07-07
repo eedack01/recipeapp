@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<div class="container pt-3">
+
+<h1>{{items[1]}}</h1>
+
+<table class="table">
+ 
+  <tbody>
+      <tr>
+          <th>Name</th>
+          <td>{{items[1]}}</td>
+      </tr>
+      <tr>
+        <th>cooking time</th>
+        <td>{{items[2]}}</td>
+    </tr>
+    <tr>
+      <th>ingrediants</th>
+      <td>{{items[3]}}</td>
+  </tr>
+  <tr>
+    <th>instructions</th>
+    <td>{{items[4]}}</td>
+</tr>
+  </tbody>
+</table>
+
+
+<div class="float-right">
+<form  action="{{ url_for('deleterecipe',recipe_id=items[0]) }}" method = "POST">
+  <input class="btn-danger" type="submit" value=" deleterecipe">
+</form>
+
+</div>
+<a href ="{{ url_for('index') }}">
+<button class="btn-primary">return</button>
+</a>
+</div>
+
+
+
+
+</body>
+</html>
