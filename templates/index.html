@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>My Recipe app</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <style>body {
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    font-family: 'Anton', sans-serif;
+    justify-content: center;
+    align-items: center;
+    color:white
+  }
+
+  tbody {
+    background-color:LightGray;
+  }
+</style>
 </head>
 <body>
 <div class="container">
@@ -17,19 +32,21 @@
   <input type="search" id="searchrecipes" name="searchrecipes">
   <input type="submit" value="Submit">
 </form>         
-  <table id="mytable" class="table table-bordered">
-<tr>
-<td>number</td>
-<td>name</td>
-<td>cooking time</td>
-<td>ingredients</td>
+  <table id="mytable" class="table">
+<tr class="thead-dark">
+<th>number</th>
+<th>name</th>
+<th>cooking time</th>
+<th>ingredients</th>
 {% for item in items %}
+<tbody> 
     <tr>
-        <td>{{item[0]}}</td>
+        <td >{{item[0]}}</td>
         <td><a href="{{ url_for('recipe',recipe_id=item[0])}}">{{item[1]}}</a></td>
         <td>{{item[2]}}</td>
         <td>{{item[3]}}</td>
     </tr>
+  </tbody>
 {% endfor %}
 </table>
 

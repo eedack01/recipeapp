@@ -7,7 +7,7 @@ Created on Wed Jul  1 20:57:16 2020
 
 import sqlite3
 from flask import Flask, render_template,request,redirect,url_for
-app = Flask(__name__)
+app = Flask(__name__,static_url_path='/static')
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
